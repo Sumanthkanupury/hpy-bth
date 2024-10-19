@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 48px;
+    margin-top: 20px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5722;
+    color: white;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    background-color: blue;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    animation: rise 1s forwards;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-180px); /* Adjusted height to pop above the text */
+    }
+}
+
+.pop {
+    animation: pop 0.5s forwards;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.letter {
+    font-size: 48px;
+    margin: 0 5px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s;
+}
+
+.bounce {
+    animation: bounce 0.5s forwards;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-80px); /* Move up 80 pixels */
+    }
+    100% {
+        transform: translateY(0); /* Move down to original position */
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allow clicks through */
+    opacity: 0; /* Start hidden */
+}
+
+.confetti div {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    opacity: 0;
+    animation: fall 1s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
